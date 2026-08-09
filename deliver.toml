@@ -1,0 +1,40 @@
+[[file]]
+path = "Cargo.toml"
+required = true
+
+[[file]]
+path = "src/lib.rs"
+required = true
+forbid_regex = ["TODO", "FIXME", "unimplemented!"]
+
+[[file]]
+path = "src/main.rs"
+required = true
+forbid_regex = ["TODO", "FIXME", "unimplemented!"]
+
+[[file]]
+path = "README.md"
+required = true
+require_regex = ["Advisory", "Injective", "Routing", "projected"]
+
+[[command]]
+name = "format"
+cmd = ["cargo", "fmt", "--", "--check"]
+expect_exit = 0
+timeout_secs = 30
+
+[[command]]
+name = "clippy"
+cmd = ["cargo", "clippy", "--all-targets", "--all-features", "--", "-D", "warnings"]
+expect_exit = 0
+timeout_secs = 120
+
+[[command]]
+name = "tests"
+cmd = ["cargo", "test", "--all-targets"]
+expect_exit = 0
+timeout_secs = 120
+
+[git]
+no_uncommitted_changes = false
+no_untracked_files = false
