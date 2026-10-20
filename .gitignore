@@ -1,3 +1,8 @@
 /target/
 .kaptaind/
 *.log
+.lwoodz/
+.uni/
+.orb
+.traci/
+.azusa/
